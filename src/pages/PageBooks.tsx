@@ -12,6 +12,7 @@ export const PageBooks = () => {
 		handleEditBook,
 		handleCancelEditBook,
 		handleSaveEditBook,
+		isAdding,
 	} = useContext(AppContext);
 
 	return (
@@ -21,10 +22,16 @@ export const PageBooks = () => {
 			</Helmet>
 			{books.length > 0 && <p>There are {books.length} books:</p>}
 
-			{adminIsLoggedIn && false && (
-				<div className="addBookArea">
-					<button>Add Book</button>
-				</div>
+			{adminIsLoggedIn && (
+				<>
+					{!isAdding ? (
+						<div className="addBookArea">
+							<button>Add Book</button>
+						</div>
+					) : (
+							<div>this is the form</div>
+					)}
+				</>
 			)}
 			<div className="books">
 				{books.map((book) => {

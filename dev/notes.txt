@@ -1,3 +1,6 @@
-- .. make install instructions on readmes
+- x create [Add] button
+- .. create isAdding state variable
+- create add form and buttons [Cancel] and [Save]
+- toggle form with [Add] and [Cancel] button 
 
 

@@ -21,6 +21,7 @@ interface IAppContext {
 	handleEditBook: (book: IBook) => void;
 	handleCancelEditBook: (book: IBook) => void;
 	handleSaveEditBook: (book: IBook) => void;
+	isAdding: boolean;
 }
 
 interface IAppProvider {
@@ -36,6 +37,7 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 	const appTitle = 'Book Site';
 	const [password, setPassword] = useState('');
 	const [adminIsLoggedIn, setAdminIsLoggedIn] = useState(false);
+	const [isAdding, setIsAdding] = useState(false);
 
 	useEffect(() => {
 		(async () => {
@@ -226,6 +228,7 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 				handleEditBook,
 				handleCancelEditBook,
 				handleSaveEditBook,
+				isAdding,
 			}}
 		>
 			{children}
