@@ -29,6 +29,7 @@ interface IAppContext {
 		book: IOriginalEditFields,
 		value: string
 	) => void;
+	handleSaveNewBook: () => void;
 }
 
 interface IAppProvider {
@@ -47,7 +48,7 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 	const [isAdding, setIsAdding] = useState(false);
 	const [newBook, setNewBook] = useState<IOriginalEditFields>(blankNewBook);
 
-	useEffect(() => {
+	const loadBooks = () => {
 		(async () => {
 			let _books: IBook[] = [];
 			const response = await axios.get(`${backendUrl}/books`);
@@ -66,6 +67,10 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 			});
 			setBooks(_books);
 		})();
+	};
+
+	useEffect(() => {
+		loadBooks();
 	}, []);
 
 	useEffect(() => {
@@ -230,9 +235,36 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 		newBook: IOriginalEditFields,
 		value: string
 	) => {
-		newBook[fieldIdCode as keyof IOriginalEditFields] =
-			value;
+		newBook[fieldIdCode as keyof IOriginalEditFields] = value;
 		setNewBook({ ...newBook });
+	};
+
+	const handleSaveNewBook = async () => {
+		try {
+			// save in backend
+			await axios.post(
+				`${backendUrl}/book`,
+				{
+					title: newBook.title,
+					description: newBook.description,
+					language: newBook.language,
+					numberOfPages: 0,
+					imageUrl:
+						'https://edwardtanguay.vercel.app/share/images/books/no-image.jpg',
+					buyUrl: '',
+				},
+				{
+					withCredentials: true,
+				}
+			);
+			// if it saved in backend, then update on frontend
+			loadBooks();
+			setIsAdding(false);
+			setNewBook({ ...blankNewBook });
+		} catch (e: any) {
+			console.log('GENERAL ERROR');
+			setAdminIsLoggedIn(false);
+		}
 	};
 
 	return (
@@ -254,6 +286,7 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 				handleToggleAddBook,
 				newBook,
 				handleAddBookFieldChange,
+				handleSaveNewBook,
 			}}
 		>
 			{children}

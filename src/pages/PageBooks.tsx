@@ -16,6 +16,7 @@ export const PageBooks = () => {
 		handleToggleAddBook,
 		newBook,
 		handleAddBookFieldChange,
+		handleSaveNewBook,
 	} = useContext(AppContext);
 
 	return (
@@ -53,24 +54,21 @@ export const PageBooks = () => {
 										/>
 									</div>
 								</div>
-
-											<div className="row">
-												<label>Description</label>
-												<div className="control">
-													<textarea
-														value={
-															newBook.description
-														}
-														onChange={(e) =>
-															handleAddBookFieldChange(
-																'description',
-																newBook,
-																e.target.value
-															)
-														}
-													/>
-												</div>
-											</div>
+								<div className="row">
+									<label>Description</label>
+									<div className="control">
+										<textarea
+											value={newBook.description}
+											onChange={(e) =>
+												handleAddBookFieldChange(
+													'description',
+													newBook,
+													e.target.value
+												)
+											}
+										/>
+									</div>
+								</div>
 								<div className="row">
 									<label>Language</label>
 									<div className="control">
@@ -90,13 +88,16 @@ export const PageBooks = () => {
 
 								<div className="buttonRow">
 									<button
-										onClick={() =>
-											handleToggleAddBook()
-										}
+										onClick={() => handleToggleAddBook()}
 									>
 										Clear
 									</button>
-									<button>Save</button>
+									<button
+										type="button"
+										onClick={handleSaveNewBook}
+									>
+										Save
+									</button>
 								</div>
 							</form>
 						</fieldset>
@@ -108,7 +109,11 @@ export const PageBooks = () => {
 					return (
 						<div className="book" key={book._id}>
 							<div className="imageWrapper">
-								<img src={book.imageUrl} />
+								{book.imageUrl.trim() === '' ? (
+									<img src="http://edwardtanguay.vercel.app/share/images/books/no-image.jpg" />
+								) : (
+									<img src={book.imageUrl} />
+								)}
 							</div>
 							<div className="info">
 								{!book.isBeingEdited ? (
