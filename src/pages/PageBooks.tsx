@@ -53,6 +53,17 @@ export const PageBooks = () => {
 										/>
 									</div>
 								</div>
+
+								<div className="buttonRow">
+									<button
+										onClick={() =>
+											handleToggleAddBook()
+										}
+									>
+										Clear
+									</button>
+									<button disabled>Save</button>
+								</div>
 							</form>
 						</fieldset>
 					)}
