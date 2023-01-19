@@ -13,6 +13,7 @@ export const PageBooks = () => {
 		handleCancelEditBook,
 		handleSaveEditBook,
 		isAdding,
+		handleToggleAddBook,
 	} = useContext(AppContext);
 
 	return (
@@ -26,10 +27,12 @@ export const PageBooks = () => {
 				<>
 					{!isAdding ? (
 						<div className="addBookArea">
-							<button>Add Book</button>
+							<button onClick={() => handleToggleAddBook()}>
+								Add Book
+							</button>
 						</div>
 					) : (
-							<div>this is the form</div>
+						<div>this is the form</div>
 					)}
 				</>
 			)}

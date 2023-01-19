@@ -1,6 +1,7 @@
 - x create [Add] button
-- .. create isAdding state variable
-- create add form and buttons [Cancel] and [Save]
+- x create isAdding state variable
+- .. create handleAddBook and toggle area
+- .. create add form and buttons [Cancel] and [Save]
 - toggle form with [Add] and [Cancel] button 
 
 

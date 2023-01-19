@@ -22,6 +22,7 @@ interface IAppContext {
 	handleCancelEditBook: (book: IBook) => void;
 	handleSaveEditBook: (book: IBook) => void;
 	isAdding: boolean;
+	handleToggleAddBook: () => void;
 }
 
 interface IAppProvider {
@@ -213,6 +214,10 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 		})();
 	};
 
+	const handleToggleAddBook = () => {
+		setIsAdding(!isAdding);
+	}
+
 	return (
 		<AppContext.Provider
 			value={{
@@ -229,6 +234,7 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 				handleCancelEditBook,
 				handleSaveEditBook,
 				isAdding,
+				handleToggleAddBook,
 			}}
 		>
 			{children}
