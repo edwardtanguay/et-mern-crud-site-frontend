@@ -227,6 +227,7 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 	};
 
 	const handleToggleAddBook = () => {
+		setNewBook({ ...blankNewBook });
 		setIsAdding(!isAdding);
 	};
 

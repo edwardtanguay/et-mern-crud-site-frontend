@@ -9,8 +9,8 @@
 - x test save 
 	- x fix
 	- x also add immediately 
-- .. standard image if none
-- make clear button actually clear the fields
+- x standard image if none
+- .. make clear button actually clear the fields
 - also clear after save
 
 - convert all flashcard to book
