@@ -14,6 +14,8 @@ export const PageBooks = () => {
 		handleSaveEditBook,
 		isAdding,
 		handleToggleAddBook,
+		newBook,
+		handleAddBookFieldChange,
 	} = useContext(AppContext);
 
 	return (
@@ -32,7 +34,24 @@ export const PageBooks = () => {
 							</button>
 						</div>
 					) : (
-						<div>this is the form</div>
+						<form>
+							<div className="row">
+								<label>Title</label>
+								<div className="control">
+									<input
+										value={newBook.title}
+										onChange={(e) =>
+											handleAddBookFieldChange(
+												'title',
+												newBook,
+												e.target.value
+											)
+										}
+										type="text"
+									/>
+								</div>
+							</div>
+						</form>
 					)}
 				</>
 			)}

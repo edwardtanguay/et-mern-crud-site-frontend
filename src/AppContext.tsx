@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { createContext } from 'react';
 import axios from 'axios';
-import { IBook, IOriginalEditFields } from './interfaces';
+import { IBook, IOriginalEditFields, blankNewBook } from './interfaces';
 import * as tools from './tools';
 
 interface IAppContext {
@@ -23,6 +23,12 @@ interface IAppContext {
 	handleSaveEditBook: (book: IBook) => void;
 	isAdding: boolean;
 	handleToggleAddBook: () => void;
+	newBook: IOriginalEditFields;
+	handleAddBookFieldChange: (
+		fieldIdCode: string,
+		book: IOriginalEditFields,
+		value: string
+	) => void;
 }
 
 interface IAppProvider {
@@ -39,6 +45,7 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 	const [password, setPassword] = useState('');
 	const [adminIsLoggedIn, setAdminIsLoggedIn] = useState(false);
 	const [isAdding, setIsAdding] = useState(false);
+	const [newBook, setNewBook] = useState<IOriginalEditFields>(blankNewBook);
 
 	useEffect(() => {
 		(async () => {
@@ -216,7 +223,17 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 
 	const handleToggleAddBook = () => {
 		setIsAdding(!isAdding);
-	}
+	};
+
+	const handleAddBookFieldChange = (
+		fieldIdCode: string,
+		newBook: IOriginalEditFields,
+		value: string
+	) => {
+		newBook[fieldIdCode as keyof IOriginalEditFields] =
+			value;
+		setNewBook({ ...newBook });
+	};
 
 	return (
 		<AppContext.Provider
@@ -235,6 +252,8 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 				handleSaveEditBook,
 				isAdding,
 				handleToggleAddBook,
+				newBook,
+				handleAddBookFieldChange,
 			}}
 		>
 			{children}

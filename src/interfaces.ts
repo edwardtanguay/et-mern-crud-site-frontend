@@ -16,3 +16,9 @@ export interface IBook {
 	isBeingEdited: boolean
 	originalEditFields: IOriginalEditFields
 }
+
+export const blankNewBook: IOriginalEditFields = {
+	title: '',
+	description: '',
+	language: ''
+}
