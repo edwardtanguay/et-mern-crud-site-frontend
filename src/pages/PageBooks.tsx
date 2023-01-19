@@ -54,6 +54,23 @@ export const PageBooks = () => {
 									</div>
 								</div>
 
+								<div className="row">
+									<label>Language</label>
+									<div className="control">
+										<input
+											value={newBook.language}
+											onChange={(e) =>
+												handleAddBookFieldChange(
+													'language',
+													newBook,
+													e.target.value
+												)
+											}
+											type="text"
+										/>
+									</div>
+								</div>
+
 								<div className="buttonRow">
 									<button
 										onClick={() =>
