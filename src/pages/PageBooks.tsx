@@ -54,6 +54,23 @@ export const PageBooks = () => {
 									</div>
 								</div>
 
+											<div className="row">
+												<label>Description</label>
+												<div className="control">
+													<textarea
+														value={
+															newBook.description
+														}
+														onChange={(e) =>
+															handleAddBookFieldChange(
+																'description',
+																newBook,
+																e.target.value
+															)
+														}
+													/>
+												</div>
+											</div>
 								<div className="row">
 									<label>Language</label>
 									<div className="control">
@@ -79,7 +96,7 @@ export const PageBooks = () => {
 									>
 										Clear
 									</button>
-									<button disabled>Save</button>
+									<button>Save</button>
 								</div>
 							</form>
 						</fieldset>
