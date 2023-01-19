@@ -34,24 +34,27 @@ export const PageBooks = () => {
 							</button>
 						</div>
 					) : (
-						<form>
-							<div className="row">
-								<label>Title</label>
-								<div className="control">
-									<input
-										value={newBook.title}
-										onChange={(e) =>
-											handleAddBookFieldChange(
-												'title',
-												newBook,
-												e.target.value
-											)
-										}
-										type="text"
-									/>
+						<fieldset className="addBookForm">
+							<legend>Adding book</legend>
+							<form>
+								<div className="row">
+									<label>Title</label>
+									<div className="control">
+										<input
+											value={newBook.title}
+											onChange={(e) =>
+												handleAddBookFieldChange(
+													'title',
+													newBook,
+													e.target.value
+												)
+											}
+											type="text"
+										/>
+									</div>
 								</div>
-							</div>
-						</form>
+							</form>
+						</fieldset>
 					)}
 				</>
 			)}
