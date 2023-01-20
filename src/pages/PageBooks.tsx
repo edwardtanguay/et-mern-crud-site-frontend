@@ -109,11 +109,11 @@ export const PageBooks = () => {
 					return (
 						<div className="book" key={book._id}>
 							<div className="imageWrapper">
-								{book.imageUrl.trim() === '' ? (
+								{/* {book.imageUrl.trim() === '' ? (
 									<img src="http://edwardtanguay.vercel.app/share/images/books/no-image.jpg" />
 								) : (
 									<img src={book.imageUrl} />
-								)}
+								)} */}
 							</div>
 							<div className="info">
 								{!book.isBeingEdited ? (
