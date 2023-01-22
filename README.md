@@ -178,16 +178,16 @@ This starter is not only a good way to learn the basic skills of building a full
 - set up `.env` file
   - create .env file and copy following text into it
 
-  ``` text
-  APP_NAME = Book Site API
-  SECONDS_TILL_SESSION_TIMEOUT = 3600 
-  PORT = 5001
-  MONGODB_CONNECTION = mongodb+srv://USERNAME:PASSWORD@cluster0.ogshn.mongodb.net/bookapi?retryWrites=true&w=majority
-  SESSION_SECRET = RANDOMSTRING
-  ADMIN_PASSWORD = ADMINPASSWORD
-  FRONTEND_URL = https://et-mern-crud-site.tanguay.eu
-  NODE_ENVIRONMENT = production
-  ```
+    ``` text
+    APP_NAME = Book Site API
+    SECONDS_TILL_SESSION_TIMEOUT = 3600 
+    PORT = 5001
+    MONGODB_CONNECTION = mongodb+srv://USERNAME:PASSWORD@cluster0.ogshn.mongodb.net/bookapi?retryWrites=true&w=majority
+    SESSION_SECRET = RANDOMSTRING
+    ADMIN_PASSWORD = ADMINPASSWORD
+    FRONTEND_URL = https://et-mern-crud-site.tanguay.eu
+    NODE_ENVIRONMENT = production
+    ```
 
   - replace all capitalized variables with appropriate data
     - USERNAME
