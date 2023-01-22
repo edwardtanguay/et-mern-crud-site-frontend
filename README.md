@@ -24,32 +24,6 @@ This starter is not only a good way to learn the basic skills of building a full
 	- MongoDB (local or Atlas)
 	- Mongoose
 
-# Fullstack MERN site which allows user to add/edit/delete items via CRUD API using MongoDB and TypeScript/ES6-Modules on frontend/backend
-
-This starter is not only a good way to learn the basic skills of building a full-stack MERN site with admin login and item editing, but you can also use this site as a basis to create sites where you can log in as admin, edit/delete/add items and then log out again. Since it uses React, this is ideal for making an app-like site on your smart phone that you log into on the go to change and add information. There is only one user (admin), the password is saved in text in the backend .env file. In this way, the app is simplified for learning purposes but this site could be used for a wide range of personal or company and sites that need to have an admin keep the site up-to-date with new information.
-
-![grafik](https://starters.tanguay.eu/images/starters/mernMongooseBookCrudFullstack.png)
-
-## features
-
-- **frontend:** 
-	- Vite/React
-	- Sass
-	- TypeScript / ES6 modules
-	- React Router
-	- useContext
-	- admin login with password
-	- react-helmet
-	- axios 
-
-- **backend:** 
-	- Node/Express 
-	- TypeScript / ES6 modules
-	- simple MVC structure (`server.ts`/`model.ts`)
-	- cookie/session authentication
-	- MongoDB (local or Atlas)
-	- Mongoose
-
 ## CREATE ONE PROJECT FOR BOTH BACKEND AND FRONTEND
 
 - open your terminal and go to your project directory
@@ -283,11 +257,6 @@ This starter is not only a good way to learn the basic skills of building a full
 - restart the nginx server
   - `sudo systemctl restart nginx`
 - in your browser, go to your site at e.g. [https://et-mern-crud-site.tanguay.eu](https://et-mern-crud-site.tanguay.eu)
-
-## more starters, templates and frameworks
-
-https://starters.tanguay.eu
-
 
 ## more starters, templates and frameworks
 
