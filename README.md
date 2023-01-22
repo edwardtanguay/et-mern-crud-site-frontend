@@ -137,7 +137,7 @@ This starter is not only a good way to learn the basic skills of building a full
     "build": "tsc",
     "setup": "pm2 start --name et-mern-crud-site-backend npm -- start",
     "start": "node dist/server.js",
-    "deploy": "git pull --no-rebase && npm i && npm run build && pm2 restart et-mern-crud-site-backend"
+    "deploy": "git pull --no-rebase && npm i && npm run build && pm2 restart et-mern-crud-site-backend --update-env --time && pm2 save"
   },
   ```
 
@@ -150,25 +150,23 @@ This starter is not only a good way to learn the basic skills of building a full
 - navigate into your backend project directory
   - e.g. `cd et-mern-crud-site-backend`
 - set up `.env` file
-  - create .env file and copy following text into it
-
-    ``` text
-    APP_NAME = Book Site API
-    SECONDS_TILL_SESSION_TIMEOUT = 3600 
-    PORT = 5001
-    MONGODB_CONNECTION = mongodb+srv://USERNAME:PASSWORD@cluster0.ogshn.mongodb.net/bookapi?retryWrites=true&w=majority
-    SESSION_SECRET = RANDOMSTRING
-    ADMIN_PASSWORD = ADMINPASSWORD
-    FRONTEND_URL = https://et-mern-crud-site.tanguay.eu
-    NODE_ENVIRONMENT = production
-    ```
-
   - replace all capitalized variables with appropriate data
     - USERNAME
     - PASSWORD
     - RANDOMSTRING
     - ADMINPASSWORD
-  - change the value of the FRONTEND_URL appropriately
+  - change the FRONTEND_URL appropriately
+
+  ``` text
+  APP_NAME = Book Site API
+  SECONDS_TILL_SESSION_TIMEOUT = 3600 
+  PORT = 5001
+  MONGODB_CONNECTION = mongodb+srv://USERNAME:PASSWORD@cluster0.ogshn.mongodb.net/bookapi?retryWrites=true&w=majority
+  SESSION_SECRET = RANDOMSTRING
+  ADMIN_PASSWORD = ADMINPASSWORD
+  FRONTEND_URL = https://et-mern-crud-site.tanguay.eu
+  NODE_ENVIRONMENT = production
+  ```
 
 - set up the site in pm2
   - `npm run setup`
@@ -211,9 +209,13 @@ This starter is not only a good way to learn the basic skills of building a full
     "cp": "node cli/cp.mjs",
     "setup": "pm2 start --name et-mern-crud-site-frontend npm -- start",
     "start": "vite preview --host --port 5002",
-    "deploy": "git pull --no-rebase && npm i && npm run build && pm2 restart et-mern-crud-site-frontend"
+    "deploy": "git pull --no-rebase && npm i && npm run build && pm2 restart et-mern-crud-site-frontend --update-env --time && pm2 save"
   },
   ```
+  
+- note: if you want to change your port in the **start** command, e.g. if 5002 is being used by other site:
+  - 1. change it in the start command above
+  - 2.  also change it in the `vite.config.ts` file
 
 - push your frontend to a repository on GitHub
 - SSH into your Hetzner account
@@ -259,5 +261,5 @@ This starter is not only a good way to learn the basic skills of building a full
 - in your browser, go to your site at e.g. [https://et-mern-crud-site.tanguay.eu](https://et-mern-crud-site.tanguay.eu)
 
 ## more starters, templates and frameworks
- 
+
 https://starters.tanguay.eu
