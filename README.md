@@ -176,12 +176,7 @@ This starter is not only a good way to learn the basic skills of building a full
 - navigate into your backend project directory
   - e.g. `cd et-mern-crud-site-backend`
 - set up `.env` file
-  - replace all capitalized variables with appropriate data
-    - USERNAME
-    - PASSWORD
-    - RANDOMSTRING
-    - ADMINPASSWORD
-  - change the FRONTEND_URL appropriately
+  - create .env file and copy following text into it
 
   ``` text
   APP_NAME = Book Site API
@@ -193,6 +188,13 @@ This starter is not only a good way to learn the basic skills of building a full
   FRONTEND_URL = https://et-mern-crud-site.tanguay.eu
   NODE_ENVIRONMENT = production
   ```
+
+  - replace all capitalized variables with appropriate data
+    - USERNAME
+    - PASSWORD
+    - RANDOMSTRING
+    - ADMINPASSWORD
+  - change the value of the FRONTEND_URL appropriately
 
 - set up the site in pm2
   - `npm run setup`
