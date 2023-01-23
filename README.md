@@ -23,6 +23,7 @@ This starter is not only a good way to learn the basic skills of building a full
 	- cookie/session authentication
 	- MongoDB (local or Atlas)
 	- Mongoose
+	- no try/catch error handling for learning simplicity
 
 ## CREATE ONE PROJECT FOR BOTH BACKEND AND FRONTEND
 
@@ -55,7 +56,7 @@ This starter is not only a good way to learn the basic skills of building a full
 
 ### create database
 
-- create MongoDB database at your MongoDB Atlas called `bookapi`
+- in your MongoDB Atlas cluster, create a MongoDB database with the name of your project, e.g. `et-mern-crud-site`
 - create a collection in it called `books`
 - import the file `dev/books.json` into the collection `books` (e.g. with MongoDB Compass)
 
@@ -67,7 +68,7 @@ This starter is not only a good way to learn the basic skills of building a full
   APP_NAME = Book Site API
   SECONDS_TILL_SESSION_TIMEOUT = 3600 
   PORT = 5001
-  MONGODB_CONNECTION = mongodb+srv://USERNAME:PASSWORD@cluster0.ogshn.mongodb.net/bookapi?retryWrites=true&w=majority
+  MONGODB_CONNECTION = mongodb+srv://USERNAME:PASSWORD@cluster0.ogshn.mongodb.net/DATABASENAME?retryWrites=true&w=majority
   SESSION_SECRET = RANDOMSTRING
   ADMIN_PASSWORD = ADMINPASSWORD
   FRONTEND_URL = http://localhost:5002
@@ -77,6 +78,7 @@ This starter is not only a good way to learn the basic skills of building a full
 - replace all capitalized variables with appropriate data
   - USERNAME
   - PASSWORD
+  - DATABASENAME
   - RANDOMSTRING
   - ADMINPASSWORD
 - you can also change the backend/frontend ports if you need to, e.g. to avoid conflicts
@@ -153,6 +155,7 @@ This starter is not only a good way to learn the basic skills of building a full
   - replace all capitalized variables with appropriate data
     - USERNAME
     - PASSWORD
+    - DATABASENAME
     - RANDOMSTRING
     - ADMINPASSWORD
   - change the FRONTEND_URL appropriately
@@ -161,7 +164,7 @@ This starter is not only a good way to learn the basic skills of building a full
   APP_NAME = Book Site API
   SECONDS_TILL_SESSION_TIMEOUT = 3600 
   PORT = 5001
-  MONGODB_CONNECTION = mongodb+srv://USERNAME:PASSWORD@cluster0.ogshn.mongodb.net/bookapi?retryWrites=true&w=majority
+  MONGODB_CONNECTION = mongodb+srv://USERNAME:PASSWORD@cluster0.ogshn.mongodb.net/DATABASENAME?retryWrites=true&w=majority
   SESSION_SECRET = RANDOMSTRING
   ADMIN_PASSWORD = ADMINPASSWORD
   FRONTEND_URL = https://et-mern-crud-site.tanguay.eu
